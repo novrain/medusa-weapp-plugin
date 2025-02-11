@@ -22,7 +22,7 @@ See docs:
 
 Phone Number Authentication:
 
-- Auth Route: POST /weapp_auth/customer
+- Auth Route: POST /weapp_auth/mini/customer
   - Creates a provider_identity and customer with the provided phone number and openid/unionid if the customer does not already exist.
   - Logs in the customer if they already exist.
   - Note: This behavior is different from Medusa's built-in auth-email provider, which does not automatically create a customer.
