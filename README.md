@@ -1,9 +1,14 @@
 
-## Medusa (>2.4.0) Weapp Plugin
+## Medusa (>=2.5.0) Weapp Plugin
 
 This plugin is created for Medusa to support Weapp (WeChat Mini Program) functionality.
 
 See [Medusa Plugin](https://github.com/medusajs/medusa-starter-plugin).
+
+Medusa introduced breaking changes to the payment provider interfaces in version 2.5.0.
+
+As a result, this package requires Medusa >= 2.5.0.
+
 
 ***!!!WIP!!!***
 
@@ -98,12 +103,11 @@ Edit the medusa-config.ts file in your Medusa application and update the options
             id: "weapp-payment",
             dependencies: [Modules.CACHE, ContainerRegistrationKeys.LOGGER],
             options: {
+              domain: process.env.STORE_DOMAIN,
               appid: process.env.WECHAT_APP_ID || 'appid',
               mchid: process.env.WECHAT_MCH_ID || 'mchid',
-              publicKey: './assets/weapp/pay_public.key',
-              privateKey: './assets/weapp/pay_private.key',
-              notify_url: `${process.env.STORE_DOMAIN}/hooks/payment/weapp-payment-provider-weapp-payment`,
-              refund_url: `${process.env.STORE_DOMAIN}/hooks/payment/weapp-payment-provider-weapp-payment`,
+              publicKey: './assets/weapp/apiclient_cert.pem',
+              privateKey: './assets/weapp/apiclient_key.pem',
               v3key: 'v3key',
             }
           }
